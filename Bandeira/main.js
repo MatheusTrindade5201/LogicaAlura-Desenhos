@@ -14,3 +14,4 @@ pincel.fillStyle = 'darkblue';
 pincel.beginPath();
 pincel.arc(300, 200, 100, 0, 2*3.14);
 pincel.fill();
+
