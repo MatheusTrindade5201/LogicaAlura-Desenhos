@@ -4,7 +4,7 @@
     pincel.fillStyle = 'grey';
     pincel.fillRect(0, 0, 600, 400);
 
-    var cor = ['blue', 'red','green'];
+    var cor = document.getElementById('cor');
     var indiceCor = 0;
     var raio = 10;
     var desenha = false;
@@ -29,7 +29,7 @@
         var x = evento.pageX - tela.offsetLeft;
         var y = evento.pageY - tela.offsetTop;
         if(desenha){
-            pincel.fillStyle = cor[indiceCor];
+            pincel.fillStyle = cor.value;
             pincel.beginPath();
             pincel.arc(x, y, raio, 0, 2 * 3.14);
             pincel.fill();
@@ -40,7 +40,7 @@
     
     tela.onmousemove = desenhaCirculo;
 
-    function mudaCor() {
+    /*function mudaCor() {
               
     indiceCor++;
     if(indiceCor > 2){
@@ -52,4 +52,4 @@
           
     }
 
-    tela.oncontextmenu = mudaCor;
+    tela.oncontextmenu = mudaCor;*/
