@@ -7,35 +7,38 @@
     var cor = ['blue', 'red','green'];
     var indiceCor = 0;
     var raio = 10;
+    var desenha = false;
+
+    function desenhoLigado(){
+        desenha = true;
+    }
+
+    function desenhoDesligado(){
+        desenha = false;
+    }
+
+    tela.onmousedown = desenhoLigado;
+    
+    tela.onmouseup = desenhoDesligado;
+
+
     function desenhaCirculo(evento) {
 
         
         
         var x = evento.pageX - tela.offsetLeft;
         var y = evento.pageY - tela.offsetTop;
-        pincel.fillStyle = cor[indiceCor];
-        pincel.beginPath();
-        if(evento.shiftKey){
-
-            raio += 10;
-
-            if(raio > 40){
-                raio = 40;
-            }
+        if(desenha){
+            pincel.fillStyle = cor[indiceCor];
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * 3.14);
+            pincel.fill();
         }
-        if(evento.altKey){
-            raio -= 5;
-
-            if(raio < 10){
-                raio = 10;
-            }
-        }
-        pincel.arc(x, y, raio, 0, 2 * 3.14);
-        pincel.fill();
-        console.log(x + ',' + y);
+        
     }
-
-    tela.onclick = desenhaCirculo;
+    
+    
+    tela.onmousemove = desenhaCirculo;
 
     function mudaCor() {
               
@@ -45,7 +48,8 @@
     }    
 
     return false;
-        
+
+          
     }
 
     tela.oncontextmenu = mudaCor;
