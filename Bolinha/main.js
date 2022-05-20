@@ -20,6 +20,9 @@ function moveBolinha(){
     limpaTela();
     desenhaBolinha(x, 20, raio);
     x += mover;
+    if(x + raio == 600 || x -raio == 0){
+        mover = mover * -1;
+    }
     
 }
 
