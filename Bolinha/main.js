@@ -16,7 +16,7 @@ function limpaTela() {
 var x = 20;
 var pulsar = 1;
 var raio = 20;
-function moveBolinha(){
+function pulsarBolinha(){
     limpaTela();
     desenhaBolinha(300, 200, raio);
     raio += pulsar;
@@ -26,4 +26,4 @@ function moveBolinha(){
     
 }
 
-setInterval(moveBolinha, 50);
+setInterval(pulsarBolinha, 50);
